@@ -90,7 +90,7 @@ export default function App() {
 		} else if (
 			!(Number(lastInp) || lastInp === '0' || Number(value) || value === '0')
 			&& !(lastInp === '%' || (value ==='-' && lastInp !== '-') || value ==='(' || value ===')'
-			|| lastInp === '(' || lastInp === ')')) {
+			|| lastInp === '(' || lastInp === ')' || (value==='.' && lastInp ==='^'))) {
 			deleteLast();
 			setCurrentPrompt(prevPrompt => prevPrompt + value)
 			if (mode === 'result') setMode('prompt')
