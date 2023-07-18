@@ -73,7 +73,7 @@ export default function App() {
 		let lastInp = currentPrompt[currentPrompt.length-1]
 		if (value === ')' && lastInp === '(') {
 			setErrorMessage('parentheses can not be empty')
-		} else if ((value === ')' && (Number(lastInp)||lastInp==='0')) || value === '(') {
+		} else if ((value === ')' && (Number(lastInp)||lastInp==='0')) || (value === '(')&&currentPrompt !== '0') {
 			setCurrentPrompt(prevPrompt => prevPrompt + value)
 		}
 		else if (currentPrompt === '0' && value === '%') {
