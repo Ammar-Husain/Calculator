@@ -13,8 +13,6 @@ export default function Screen(props) {
 				let lastInp = value[i-1];
 				if (char === ')' && lastInp === '(') {
 					setErrorMessage('parentheses can not be empty')
-				} else if (char === ')' || char === '(') {
-					return char
 				} else if (currentPrompt === '0' && char === '%') {
 					setErrorMessage("\"%\" must used after a number")
 				}
@@ -29,7 +27,7 @@ export default function Screen(props) {
 				}else if (char === '-' && lastInp === '-') {
 				} else if (
 					!(Number(lastInp) || lastInp === '0' || Number(char) || char === '0') &&
-					!(lastInp === '%' || (char === '-' && lastInp !== '-') || (char==='.' && lastInp ==='^') || char === '(' || char === ')' || (lastInp === ')' && char === '^')
+					!(lastInp === '%' || (char === '-' && lastInp !== '-') || (char==='.' && lastInp ==='^') || char === '(' || char === ')' || (lastInp === ')' && char === '^') 
 					|| lastInp === '(' || lastInp === '')
 					) {
 						setTimeout(() => {setCurrentPrompt(prev => prev.split('').filter((value, index) => index !== i-1).join(''))},5)

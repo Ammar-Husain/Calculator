@@ -68,13 +68,12 @@ export default function App() {
 	useEffect(() => {
 		console.log(result)
 	}, [result])
+	
 	function addToPrompt(value) {
 		setErrorMessage('');
 		let lastInp = currentPrompt[currentPrompt.length-1]
 		if (value === ')' && lastInp === '(') {
 			setErrorMessage('parentheses can not be empty')
-		} else if ((value === ')' && (Number(lastInp)||lastInp==='0')) || (value === '(')&&currentPrompt !== '0') {
-			setCurrentPrompt(prevPrompt => prevPrompt + value)
 		}
 		else if (currentPrompt === '0' && value === '%') {
 			setErrorMessage("\"%\" must used after a number")
@@ -90,7 +89,7 @@ export default function App() {
 		} else if (
 			!(Number(lastInp) || lastInp === '0' || Number(value) || value === '0')
 			&& !(lastInp === '%' || (value ==='-' && lastInp !== '-') || value ==='(' || value ===')'
-			|| lastInp === '(' || lastInp === ')' || (value==='.' && lastInp ==='^'))) {
+			|| lastInp === '(' || lastInp === ')'  || (value==='.' && lastInp ==='^'))) {
 			deleteLast();
 			setCurrentPrompt(prevPrompt => prevPrompt + value)
 			if (mode === 'result') setMode('prompt')
