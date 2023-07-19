@@ -24,7 +24,7 @@ export default function Screen(props) {
 				}else if (char === '-' && lastInp === '-') {
 				} else if (
 					!(Number(lastInp) || lastInp === '0' || Number(char) || char === '0') &&
-					!(lastInp === '%' || (char === '-' && lastInp !== '-') || (char==='.' && lastInp ==='^') || char === '(' || char === ')' || (lastInp === ')' && char === '^') 
+					!(lastInp === '%' || (char === '-' && lastInp !== '-') || (char==='.') || char === '(' || char === ')' || (lastInp === ')' && char === '^') 
 					|| lastInp === '(' || lastInp === '')
 					) {
 						setTimeout(() => {setCurrentPrompt(prev => prev.split('').filter((value, index) => index !== i-1).join(''))},5)
