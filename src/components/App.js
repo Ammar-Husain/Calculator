@@ -53,6 +53,7 @@ export default function App() {
 					return char
 				}
 			}).join('')
+			console.log(readyToEval)
 			setTimeout(() => setResult([eval(readyToEval)].join('')), 6)
 		}
 		if (!currentPrompt) {
@@ -77,7 +78,7 @@ export default function App() {
 			setErrorMessage(`you can't start first number with zero if you want to use decimals use "." directly`);
 		} else if(currentPrompt === '0' && value==='^') {
 			setErrorMessage('the power must come after a number')
-		} else if (currentPrompt === '0'){
+		} else if (currentPrompt === '0' && value !== '.'){
 			setCurrentPrompt(value)
 		} else if ( lastInp === '%' && (Number(value) || value === '0')) {
 			setErrorMessage('putting a number after "%" directly leads to incorrect results')

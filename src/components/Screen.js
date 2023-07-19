@@ -6,7 +6,7 @@ export default function Screen(props) {
 	function changePrompt(event) {
 		setErrorMessage('')
 		let promptValue = event.target.value;
-		let value = promptValue.charAt(0) === '0' ? promptValue.slice(1) : promptValue;
+		let value = (promptValue.charAt(0) === '0' && promptValue.charAt(1) !== '.') ? promptValue.slice(1) : promptValue;
 		const cleanedValue = value.split('').map((char, i) => {
 			if (Number(char) || char === '0' || char === '+' || char === '-' || char === '÷' || char === '×'
 		  || char === '.' || char === '%' || char === '(' || char === ')' || char === '^') {
@@ -15,9 +15,8 @@ export default function Screen(props) {
 					setErrorMessage('parentheses can not be empty')
 				} else if (currentPrompt === '0' && char === '%') {
 					setErrorMessage("\"%\" must used after a number")
-				}
-				else if (value === '0' && char === '0') {
-					setErrorMessage(`you can't start first number with zero if you want to use decimals use "." directly`);
+				// } else if (currentPrompt === '0' && char === '0') {
+				// 	setErrorMessage(`you can't start first number with zero if you want to use decimals use "." directly`);
 				} else if (currentPrompt === '0' && value === '^') {
 					setErrorMessage('the power must come after a number')
 				} else if (currentPrompt === '0') {
