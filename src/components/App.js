@@ -53,7 +53,6 @@ export default function App() {
 					return char
 				}
 			}).join('')
-			console.log(readyToEval)
 			setTimeout(() => setResult([eval(readyToEval)].join('')), 6)
 		}
 		if (!currentPrompt) {
