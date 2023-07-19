@@ -53,7 +53,6 @@ export default function App() {
 					return char
 				}
 			}).join('')
-			console.log(readyToEval)
 			setTimeout(() => setResult([eval(readyToEval)].join('')), 6)
 		}
 		if (!currentPrompt) {
@@ -64,10 +63,6 @@ export default function App() {
 			setErrorMessage(`a ")" dosen't match any "("`)
 		}
 	},[currentPrompt])
-	
-	useEffect(() => {
-		console.log(result)
-	}, [result])
 	
 	function addToPrompt(value) {
 		setErrorMessage('');
