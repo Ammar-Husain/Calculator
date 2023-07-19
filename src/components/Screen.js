@@ -15,8 +15,6 @@ export default function Screen(props) {
 					setErrorMessage('parentheses can not be empty')
 				} else if (currentPrompt === '0' && char === '%') {
 					setErrorMessage("\"%\" must used after a number")
-				// } else if (currentPrompt === '0' && char === '0') {
-				// 	setErrorMessage(`you can't start first number with zero if you want to use decimals use "." directly`);
 				} else if (currentPrompt === '0' && value === '^') {
 					setErrorMessage('the power must come after a number')
 				} else if (currentPrompt === '0') {
